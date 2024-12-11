@@ -7,7 +7,6 @@ data_structure = [
 ((), [{(2, 'Urban', ('Urban2', 35))}])
 ]
 
-print((data_structure))
 all_ = []
 def dostaem(name):
     global all_
@@ -16,6 +15,7 @@ def dostaem(name):
             all_.append(i)
         if isinstance(i, str):
             all_.append(len(i))
+
         if isinstance(i, list):
             dostaem(i)
         if isinstance(i, tuple):
@@ -23,8 +23,10 @@ def dostaem(name):
         if isinstance(i, dict):
             for j in i.items():
                 dostaem(j)
-            
+        if isinstance(i, set):
+            dostaem(i)
+
 
 
 dostaem(data_structure)
-print(all_)
+print(sum(all_))
